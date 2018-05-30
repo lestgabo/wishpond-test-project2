@@ -10,12 +10,6 @@
     </tr>
   </thead>
 
-  <ul id="tests">
-    <%= render @tests %>
-  </ul>
-  
-  <br>
-  
   <%= form_with(model: @test, local: true) do |form| %>
     <div class="field">
       <%= form.label :name %>
@@ -31,7 +25,14 @@
       <%= form.submit data: { "disable-with": "Uploading..." }%>
     </div>
   <% end %>
+  
+  <br>
 
+  <ul id="tests">
+    <%= render @tests %>
+  </ul>
+  
+  <br>
   
   <tbody>
     <% @tests.each do |test| %>
@@ -39,7 +40,7 @@
         <td><%= test.name %></td> 
         <td><%= link_to 'Show', test %></td>
         <td><%= link_to 'Edit', edit_test_path(test) %></td>
-        <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
   </tbody>
@@ -47,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Test', new_test_path %>
+<%#= link_to 'New Test', new_test_path %>

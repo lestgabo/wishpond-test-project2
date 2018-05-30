@@ -29,10 +29,11 @@ class TestsController < ApplicationController
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
-        format.json { render :show, status: :created, location: @test }
+        format.html { redirect_to root_path, notice: 'Test was successfully created.' }
+        format.js
+        format.json { render json: @test, status: :created, location: @test }
       else
-        format.html { render :new }
+        format.html { render action: "new" }
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end
     end

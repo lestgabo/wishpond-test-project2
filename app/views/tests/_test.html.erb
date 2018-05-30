@@ -1,10 +1,13 @@
-<p>
+<p id="test"><%= test.name %></p>
+
+<li>
   <strong>Name:</strong>
-  <%= @test.name %>
-</p>
-<p>
+  <%= test.name %>
+</li>
+<li>
   <strong>Uploads:</strong>
-  <% (0..@test.uploads.length-1).each do |i| %> 
-    <%= image_tag(@test.uploads[i]) %>
+  <% (0..test.uploads.length-1).each do |i| %> 
+    <%= image_tag(test.uploads[i]) %>
   <% end %>
-</p>
+</li>
+
