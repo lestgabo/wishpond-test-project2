@@ -5,6 +5,7 @@ class TestsController < ApplicationController
   # GET /tests.json
   def index
     @tests = Test.all
+    @test = Test.new
   end
 
   # GET /tests/1
