@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Page Twos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <%#= @page_twos.images  %> 
+
+  <tbody>
+    <% @page_twos.each do |page_two| %>
+      <tr>
+        <td><%= link_to 'Show', page_two %></td>
+        <td><%= link_to 'Edit', edit_page_two_path(page_two) %></td>
+        <td><%= link_to 'Destroy', page_two, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Page Two', new_page_two_path %>

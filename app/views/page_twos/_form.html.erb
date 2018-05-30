@@ -1,0 +1,17 @@
+<%= form_with(model: page_two, local: true) do |form| %>
+  <% if page_two.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(page_two.errors.count, "error") %> prohibited this page_two from being saved:</h2>
+
+      <ul>
+      <% page_two.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
