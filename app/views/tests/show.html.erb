@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @test.name %>
+</p>
+<p>
+  <strong>Upload:</strong>
+  <%= @test.uploads.length %> <br>
+  <%= image_tag(@test.uploads[0]) %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>
