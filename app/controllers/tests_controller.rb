@@ -32,7 +32,7 @@ class TestsController < ApplicationController
   
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, flash: {:@test2 => @test2}, notice: 'Test was successfully created.' }
+        format.html { redirect_to @test, notice: 'Test was successfully created.' }
         format.js
         format.json { render json: @test, status: :created, location: @test }
       else
@@ -52,7 +52,7 @@ class TestsController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to root_path(@test2), notice: 'Test was successfully updated.' }
+        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
         format.json { render :show, status: :ok, location: @test }
       else
         format.html { render :edit }

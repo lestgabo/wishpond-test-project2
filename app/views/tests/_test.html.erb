@@ -5,9 +5,14 @@
   <%= test.name %>
 </li>
 <li>
+    <% @gallery = Hash.new  %>
   <strong>Uploads:</strong>
   <% (0..test.uploads.length-1).each do |i| %> 
-    <%= image_tag(test.uploads[i]) %>
+    <% @gallery[i] = test.uploads[i] %>
+
+    <%#= image_tag(test.uploads[i]) %>
   <% end %>
+  
+      <%= image_tag(@gallery[0]) %>
 </li>
 
