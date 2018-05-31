@@ -1,0 +1,13 @@
+<p id="test2"><%= test2 %></p>
+
+<li>
+  <strong>Name2:</strong>
+  <%= test2 %>
+</li>
+<li>
+  <strong>Gallery:</strong>
+  <% (0..test.uploads.length-1).each do |i| %> 
+    <%= image_tag(test.uploads[i]) %>
+  <% end %>
+</li>
+

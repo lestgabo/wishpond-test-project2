@@ -1,11 +1,24 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
 
+  def gallery
+    @gallery = Test.all
+    # @test2 = {}
+    # (0..@gallery.uploads.length-1).each do |i| 
+    #   @test2 << @gallery.uploads[i]
+    # end
+  
+  end
   # GET /tests
   # GET /tests.json
+  @test2 = {}
   def index
     @tests = Test.all
     @test = Test.new
+    
+    (0..@test.uploads.length-1).each do |i| 
+      @test2 << @test.uploads[i]
+    end
   end
 
   # GET /tests/1

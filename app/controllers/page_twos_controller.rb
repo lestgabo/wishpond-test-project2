@@ -26,7 +26,7 @@ class PageTwosController < ApplicationController
   def create
     @page_two = PageTwo.new(page_two_params)
     
-    @page_two << @tests
+    @page_two << @test.uploads[0]
     respond_to do |format|
       if @page_two.save
         format.html { redirect_to @page_two, notice: 'Page two was successfully created.' }
@@ -70,6 +70,6 @@ class PageTwosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_two_params
-      params.require(:page_two).permit(images: [])
+      params.permit(images: [])
     end
 end
