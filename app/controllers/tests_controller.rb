@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
-
   # GET /tests
   # GET /tests.json
   def index
@@ -24,12 +23,16 @@ class TestsController < ApplicationController
 
   # POST /tests
   # POST /tests.json
+
   def create
     @test = Test.new(test_params)
-
+      
+    @test2 = String.new("This is my string. Get your own string")
+    
+  
     respond_to do |format|
       if @test.save
-        format.html { redirect_to root_path, notice: 'Test was successfully created.' }
+        format.html { redirect_to @test, flash: {:@test2 => @test2}, notice: 'Test was successfully created.' }
         format.js
         format.json { render json: @test, status: :created, location: @test }
       else
@@ -37,6 +40,11 @@ class TestsController < ApplicationController
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end
     end
+    
+    # (0..@test.uploads.length-1).each do |i|
+    #     @test2 = @test2 + i.to_s
+    # end
+    
   end
 
   # PATCH/PUT /tests/1
@@ -44,7 +52,7 @@ class TestsController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
+        format.html { redirect_to root_path(@test2), notice: 'Test was successfully updated.' }
         format.json { render :show, status: :ok, location: @test }
       else
         format.html { render :edit }

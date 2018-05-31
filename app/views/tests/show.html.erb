@@ -5,10 +5,15 @@
   <%= @test.name %>
 </p>
 <p>
-  <strong>Uploads:</strong>
-  <% (0..@test.uploads.length-1).each do |i| %> 
-    <%= image_tag(@test.uploads[i]) %>
-  <% end %>
+  <strong>Uploads from @test2:</strong>
+  <%#= @test2  %>
+   <%= @test.uploads[0] %> <br>
+      <% if @test2.nil? %>
+        <%= "NIL" %>
+      <% else %>
+        <%= @test2 %>
+      <% end %>
+
 </p>
 
 <%= link_to 'Edit', edit_test_path(@test) %> |
