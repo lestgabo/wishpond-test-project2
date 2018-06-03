@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# countdown timer gem
+# gem 'timers'
+
 #Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
 

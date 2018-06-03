@@ -6,13 +6,33 @@
 </li>
 <li>
     <% @gallery = Hash.new  %>
-  <strong>Uploads:</strong>
+    <% @countdown = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9};  %>
+  <strong>Uploads:</strong> <br>
   <% (0..test.uploads.length-1).each do |i| %> 
     <% @gallery[i] = test.uploads[i] %>
-
-    <%#= image_tag(test.uploads[i]) %>
+    <%#= image_tag(@test.uploads[i]) %>
   <% end %>
-  
-      <%= image_tag(@gallery[0]) %>
+  <br><br><br>
+
+  <h1 id="demo"></h1>
+
+  <br><br><br>
+  <%= @countdown.values[5] %> <br>
+  <%= image_tag(@gallery[0]) %>
 </li>
 
+<script>
+  var max = 11;
+  setInterval(countdown, 1000);
+  
+  function countdown(){
+	  max--;
+    if (max > 0){
+      document.getElementById("demo").innerHTML = max;
+    }else{
+      document.getElementById("demo").innerHTML = 10;
+      max = 10;
+    }
+  }
+
+</script>

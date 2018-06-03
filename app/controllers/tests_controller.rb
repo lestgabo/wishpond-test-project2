@@ -5,6 +5,7 @@ class TestsController < ApplicationController
   def index
     @tests = Test.all
     @test = Test.new
+
   end
 
   # GET /tests/1
@@ -26,10 +27,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
-      
-    @test2 = String.new("This is my string. Get your own string")
-    
-  
+
     respond_to do |format|
       if @test.save
         format.html { redirect_to @test, notice: 'Test was successfully created.' }
