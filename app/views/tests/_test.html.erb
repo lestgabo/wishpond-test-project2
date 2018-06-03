@@ -10,13 +10,14 @@
   <!--<strong>Uploads:</strong> <br>-->
 
   <% (0..test.uploads.length-1).each do |i| %> 
-    <% @gallery[i] = test.uploads[i] %>
+    <% @gallery[i] = test.thumbnail(i) %>
     <%#= image_tag(@test.uploads[i]) %>
   <% end %>
   
   <br>
 
- 
+ <!-- https://youtu.be/jtKEP_lsLco?t=1025 -->
+ <!-- @post.uploads.each do |upload| .....  upload.image? -->
   <!--<h1 id="demo">  </h1> -->
    <%#= image_tag(@gallery[0]) %>
   <br>
@@ -25,9 +26,9 @@
   <%= content_tag :div, id: "demo" do %>
   <% end %>
   <strong><%= @gallery.size %></strong> <br>
-  <%#= image_tag(@gallery[0]) %>
-  <%#= image_tag(test.uploads[0]) %>
-  <%= image_tag(test.uploads[0].variant(resize: "500x500")) %>
+  <%= image_tag(@gallery[0]) %>
+  <%#= image_tag(test.thumbnail(0)) %>
+  <%#= image_tag(test.uploads[0].variant(resize: "500x500")) %>
   <br>
   
   <%#= @countdown.values[5] %>

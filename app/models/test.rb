@@ -6,11 +6,12 @@ class Test < ApplicationRecord
   # if there is attachment
   validate :is_there_attached
   
-  def thumbnail
-    require "mini_magick"
-    image = MiniMagick::Image.open(url_for(uploads))
-    image.resize "200x200"
+  # https://www.youtube.com/watch?v=rxx4mY4WGhY&lc=z22ztdrwcx3hu5t10acdp43azluxdja2uoholmvuegdw03c010c.1528064220503605
+  # resizing the better way, instead of resizing in the views
+  def thumbnail(input)
+    return self.uploads[input].variant(resize: '500x500').processed
   end
+  
   
   private 
   def is_there_attached
