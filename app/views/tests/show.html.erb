@@ -1,18 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @test.name %>
-</p>
-<p>
-  <strong>Uploads from @test2:</strong>
-  <% @test2 = String.new("This is my string. Get your own string")  %> 
-
   <ul id="tests">
-    <%= render @test %>
+    <%= render @test, test2: 'TEST2 from show' %>
   </ul>
- <%= @test2 %>
-
 </p>
 
 <%= link_to 'Edit', edit_test_path(@test) %> |
