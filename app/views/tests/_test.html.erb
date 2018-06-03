@@ -8,6 +8,7 @@
     <% @gallery = Hash.new  %>
     <% @countdown = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9};  %>
   <!--<strong>Uploads:</strong> <br>-->
+
   <% (0..test.uploads.length-1).each do |i| %> 
     <% @gallery[i] = test.uploads[i] %>
     <%#= image_tag(@test.uploads[i]) %>
@@ -24,9 +25,9 @@
   <%= content_tag :div, id: "demo" do %>
   <% end %>
   <strong><%= @gallery.size %></strong> <br>
-   <%= image_tag(@gallery[0]) %>
-
-  
+  <%#= image_tag(@gallery[0]) %>
+  <%#= image_tag(test.uploads[0]) %>
+  <%= image_tag(test.uploads[0].variant(resize: "500x500")) %>
   <br>
   
   <%#= @countdown.values[5] %>
