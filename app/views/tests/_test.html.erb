@@ -35,8 +35,10 @@
   <%#= image_tag(@gallery[0]) %>
 </li>
 
+<img id="imageid" />
+
 <script>
-  var max = 3;
+  var max = 5;
   setInterval(countdown, 1000);
   
   function countdown(){
@@ -44,16 +46,18 @@
     if (max > 0){
       document.getElementById("demo").innerHTML = max;
       if (typeof gon.your_array[max] !== 'undefined'){
-        alert(gon.your_array[max])
+        // alert(gon.your_array[max])
       } 
-      
+
     }else{
       document.getElementById("demo").innerHTML = 2;
       max = 2;
     }
+    
+    var img = document.getElementById('imageid');
+    img.src = gon.your_array[max]
   }
 
-  
 </script>
  <script>
 //   var max = 11;
