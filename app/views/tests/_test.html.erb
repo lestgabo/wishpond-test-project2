@@ -16,10 +16,7 @@
   <% end %>  
 
   <br>
-  
-  <%= test2 %>
-  <%= content_tag :div, id: "demo" do %>
-  <% end %>
+
   <strong>GALLERY SIZE: <%= @gallery.size %></strong> <br>
 
   
@@ -34,28 +31,28 @@
   <%#= @countdown.values[5] %>
   <%#= image_tag(@gallery[0]) %>
 </li>
-
-<img id="imageid" />
+  <%= content_tag :div, :strong, id: "demo" do %>
+  <% end %>
+  <img id="imageid" />
 
 <script>
-  var max = 5;
+  var max = 11;
   setInterval(countdown, 1000);
   
   function countdown(){
 	  max--;
     if (max > 0){
       document.getElementById("demo").innerHTML = max;
-      if (typeof gon.your_array[max] !== 'undefined'){
-        // alert(gon.your_array[max])
-      } 
-
     }else{
-      document.getElementById("demo").innerHTML = 2;
-      max = 2;
+      document.getElementById("demo").innerHTML = 10;
+      max = 10;
     }
-    
+    // if (typeof gon.your_array[max] !== 'undefined'){
+    //     // alert(gon.your_array[max])
+    // } 
+    // alert(gon.your_int) //size of the array, @gallery
     var img = document.getElementById('imageid');
-    img.src = gon.your_array[max]
+    img.src = gon.your_array[max%gon.your_int]
   }
 
 </script>

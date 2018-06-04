@@ -11,11 +11,11 @@ class TestsController < ApplicationController
   # GET /tests/1.json
   def show
     @gallery = Array.new
-    gon.your_int = 0
     (0..@test.uploads.length-1).each do |i|
       @gallery[i] = rails_blob_url(@test.uploads[i])
     end
     gon.your_array = @gallery
+    gon.your_int = @gallery.size
   end
 
   # GET /tests/new
