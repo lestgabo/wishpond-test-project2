@@ -38,7 +38,7 @@
 <script>
   var max = 11;
   setInterval(countdown, 1000);
-  
+  var current_index = 0
   function countdown(){
 	  max--;
     if (max > 0){
@@ -52,7 +52,13 @@
     // } 
     // alert(gon.your_int) //size of the array, @gallery
     var img = document.getElementById('imageid');
-    img.src = gon.your_array[max%gon.your_int]
+    // img.src = gon.your_array[max%gon.your_int]
+  
+    if (current_index == gon.your_int) {
+      current_index = 0
+    }
+    img.src = gon.your_array[current_index]
+    current_index++;
   }
 
 </script>
