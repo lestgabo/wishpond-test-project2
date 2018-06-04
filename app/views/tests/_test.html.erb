@@ -5,15 +5,22 @@
 <!--  <%= test.name %>-->
 <!--</li>-->
 <li>
-    <% @gallery = Hash.new  %>
+
+    <% @gallery_thumbnails = Hash.new  %>
     <% @countdown = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9};  %>
   <!--<strong>Uploads:</strong> <br>-->
 
   <% (0..test.uploads.length-1).each do |i| %> 
-    <% @gallery[i] = test.thumbnail(i) %>
+    <% @gallery_thumbnails[i] = test.thumbnail(i) %>
     <%#= image_tag(@test.uploads[i]) %>
+  <% end %>  
+  
+  <% (0..test.uploads.length-1).each do |i| %> 
+    <% @gallery[i] = rails_blob_url(test.uploads[i]) %>
   <% end %>
   
+
+
   <br>
 
  <!-- https://youtu.be/jtKEP_lsLco?t=1025 -->
@@ -25,10 +32,17 @@
   <%= test2 %>
   <%= content_tag :div, id: "demo" do %>
   <% end %>
-  <strong><%= @gallery.size %></strong> <br>
+  <strong>GALLERY SIZE: <%= @gallery.size %></strong> <br>
+  <strong>GON INT: gon.your_array[0] </strong> <br>
+  
+  <strong><%= @gallery %></strong> <br>
   <%= image_tag(@gallery[0]) %>
+  <strong><% s = rails_blob_url(test.uploads[0]) %></strong> <br>
+ <strong><%= s  %></strong> <br>
+  <%#= image_tag(@gallery[0]) %>
   <%#= image_tag(test.thumbnail(0)) %>
   <%#= image_tag(test.uploads[0].variant(resize: "500x500")) %>
+
   <br>
   
   <%#= @countdown.values[5] %>
@@ -43,12 +57,16 @@
 	  max--;
     if (max > 0){
       document.getElementById("demo").innerHTML = max;
+      gon.your_int = max;
     }else{
       document.getElementById("demo").innerHTML = 2;
+      gon.your_int = 2;
       max = 2;
     }
   }
-
+  alert(gon.your_array)
+  
+  
 </script>
  <script>
 //   var max = 11;

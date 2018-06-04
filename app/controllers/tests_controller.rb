@@ -5,12 +5,17 @@ class TestsController < ApplicationController
   def index
     @tests = Test.all
     @test = Test.new
-
   end
 
   # GET /tests/1
   # GET /tests/1.json
   def show
+    @gallery = Array.new
+    gon.your_int = 0
+    (0..@test.uploads.length-1).each do |i|
+      @gallery[i] = rails_blob_url(@test.uploads[i])
+    end
+    gon.your_array = @gallery
   end
 
   # GET /tests/new

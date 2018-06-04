@@ -38,6 +38,9 @@ gem 'activestorage'
 # Activestorage doesn't have built-in validators
 gem 'file_validators'
 
+# passing data to JavaScript
+gem 'gon'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
