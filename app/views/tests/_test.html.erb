@@ -14,31 +14,17 @@
     <% @gallery_thumbnails[i] = test.thumbnail(i) %>
     <%#= image_tag(@test.uploads[i]) %>
   <% end %>  
-  
-  <% (0..test.uploads.length-1).each do |i| %> 
-    <% @gallery[i] = rails_blob_url(test.uploads[i]) %>
-  <% end %>
-  
 
-
-  <br>
-
- <!-- https://youtu.be/jtKEP_lsLco?t=1025 -->
- <!-- @post.uploads.each do |upload| .....  upload.image? -->
-  <!--<h1 id="demo">  </h1> -->
-   <%#= image_tag(@gallery[0]) %>
   <br>
   
   <%= test2 %>
   <%= content_tag :div, id: "demo" do %>
   <% end %>
   <strong>GALLERY SIZE: <%= @gallery.size %></strong> <br>
-  <strong>GON INT: gon.your_array[0] </strong> <br>
+
   
   <strong><%= @gallery %></strong> <br>
   <%= image_tag(@gallery[0]) %>
-  <strong><% s = rails_blob_url(test.uploads[0]) %></strong> <br>
- <strong><%= s  %></strong> <br>
   <%#= image_tag(@gallery[0]) %>
   <%#= image_tag(test.thumbnail(0)) %>
   <%#= image_tag(test.uploads[0].variant(resize: "500x500")) %>
@@ -57,15 +43,16 @@
 	  max--;
     if (max > 0){
       document.getElementById("demo").innerHTML = max;
-      gon.your_int = max;
+      if (typeof gon.your_array[max] !== 'undefined'){
+        alert(gon.your_array[max])
+      } 
+      
     }else{
       document.getElementById("demo").innerHTML = 2;
-      gon.your_int = 2;
       max = 2;
     }
   }
-  alert(gon.your_array)
-  
+
   
 </script>
  <script>
