@@ -15,3 +15,27 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+// https://www.w3schools.com/Css/tryit.asp?filename=trycss_table_fancy
+#PLAYS {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#PLAYS td, #PLAYS th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#PLAYS tr:nth-child(even){background-color: #f2f2f2;}
+
+#PLAYS tr:hover {background-color: #ddd;}
+
+#PLAYS th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: blue;
+    color: white;
+}

@@ -31,63 +31,121 @@
   <%#= @countdown.values[5] %>
   <%#= image_tag(@gallery[0]) %>
 </li>
-  <button id="TableButton" class='btn btn-success btn-lg btn-block'></button> 
+
   <br>
   <%= content_tag :div, :strong, id: "demo" do %>
   <% end %>
-  <img id="imageid" />
+  <!--<img id="imageid" />-->
   
+  <table id="PLAYS">
+    <tr>
+      <th colspan="3"><strong>PLAYS</strong></th>
+    </tr> 
+    <tr>
+      <th>Countdown Value</th>
+      <th>Image</th>
+      <th>Image Index</th>
+    </tr> 
+    <% rails_index = 0 %>
+    <% (10.to_i).downto(0) { |countdown| %>
+      <tr>
+        <td><%= countdown %>
+        </td>
+        
+        <td><% if (rails_index == @gallery.size) %>
+            <% rails_index = 0 %>
+            <% end %>
+            <%= rails_index %>
+        </td>
+        
+        <td>
+          <%= @gallery[rails_index] %>
+        </td>
+      </tr>
+      <% rails_index += 1 %>
+    <% } %>
+  </table>
   
+  <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+          <button onclick="fillTable()" class='btn btn-success btn-lg btn-block'>CREATE ROW</button> 
+      </div>
+  </div>
+
+
 
 <script>
-  var max = 11;
+  document.getElementById("PLAYS").addEventListener("load", fillTable);
+  
+  function fillTable(){
+    var table = document.getElementById("PLAYS");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    
+    var countdownValue2;
+    var current_index2 = 0;
+    for (countdownValue2 = 10; countdownValue2 > 1; countdownValue2--){
+      if (current_index2 == gon.your_int) {
+        current_index2 = 0
+      }
+      cell1.innerHTML = countdownValue2;
+      cell2.innerHTML = current_index2;
+      cell3.innerHTML = gon.your_array[current_index2];
+      // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = countdownValue2;
+      // document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = current_index2;
+      // document.getElementById("PLAYS").insertRow(-1).insertCell(2).innerHTML = gon.your_array[current_index2];
+      current_index2++;
+    }
+
+    // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = "testtesttest";
+  }
+
+</script>
+<script>
+  var countdownValue = 11;
   setInterval(countdown, 1000);
   var current_index = 0
+
   function countdown(){
-	  max--;
-    if (max > 0){
-      document.getElementById("demo").innerHTML = max;
+	  countdownValue--;
+    if (countdownValue > 0){
+      document.getElementById("demo").innerHTML = countdownValue;
     }else{
       document.getElementById("demo").innerHTML = 10;
-      max = 10;
+      countdownValue = 10;
     }
-    // if (typeof gon.your_array[max] !== 'undefined'){
-    //     // alert(gon.your_array[max])
+    // if (typeof gon.your_array[countdownValue] !== 'undefined'){
+    //     // alert(gon.your_array[countdownValue])
     // } 
     // alert(gon.your_int) //size of the array, @gallery
     var img = document.getElementById('imageid');
-    // img.src = gon.your_array[max%gon.your_int]
+    // img.src = gon.your_array[countdownValue%gon.your_int]
   
     if (current_index == gon.your_int) {
       current_index = 0
     }
     // https://stackoverflow.com/questions/44341721/how-to-display-dynamic-url-image-in-html-from-which-created-by-javascript
     img.src = gon.your_array[current_index]
+    // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_insert_deleterow
+    // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
+    // document.getElementById("PLAYS").onload = function() {fillTable()};
+      document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = countdownValue;
+      document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = current_index;
+      document.getElementById("PLAYS").insertRow(-1).insertCell(2).innerHTML = gon.your_array[current_index];
     current_index++;
   }
 
+
 </script>
 
-<script>
-  Table = $("#Table").DataTable({
-    data: [],
-    columns: [
-                { "data": "Timer Value"},
-                { "data": "Current Image URL"}
-    ],
-    rowCallback: function (row, data) {},
-    filter: false,
-    info: false,
-    ordering: false,
-    processing: true,
-    retrieve: true
-  });
-</script>
+
 
 <script>
-  $("#TableButton").on("click", function(event)){
-    $.ajax({
-            Table.rows.add()
-    });
-  }
+  // $("#TableButton").on("click", function(event)){
+  //   $.ajax({
+      
+  //   });
+  // }
 </script>
