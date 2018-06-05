@@ -41,6 +41,9 @@ gem 'file_validators'
 # passing data to JavaScript
 gem 'gon'
 
+# jquery-rails gem
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
