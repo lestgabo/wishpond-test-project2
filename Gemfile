@@ -41,8 +41,12 @@ gem 'file_validators'
 # passing data to JavaScript
 gem 'gon'
 
-# jquery-rails gem
+# jquery-rails gem, actually already installed
 gem 'jquery-rails'
+
+# Bootstrap and sass
+gem 'bootstrap-sass'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
