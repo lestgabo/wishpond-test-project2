@@ -16,27 +16,13 @@
   <% end %>  
 
   <br>
-
-  <strong>GALLERY SIZE: <%= @gallery.size %></strong> <br>
-
-  
-  <strong><%= @gallery %></strong> <br>
-  <%= image_tag(@gallery[0]) %>
-  <%#= image_tag(@gallery[0]) %>
-  <%#= image_tag(test.thumbnail(0)) %>
-  <%#= image_tag(test.uploads[0].variant(resize: "500x500")) %>
-
+  <strong>GALLERY SIZE: <%= @gallery.size %></strong> 
   <br>
-  
-  <%#= @countdown.values[5] %>
-  <%#= image_tag(@gallery[0]) %>
+
+
 </li>
 
-  <br>
-  <%= content_tag :div, :strong, id: "demo" do %>
-  <% end %>
-  <img id="imageid" />
-  
+
   <table id="PLAYS">
     <tr>
       <th colspan="3"><strong>PLAYS</strong></th>
@@ -67,7 +53,12 @@
           <button onclick="fillTable()" class='btn btn-success btn-lg btn-block'>CREATE ROW</button> 
       </div>
   </div>
-
+  
+  <br>
+  <%= content_tag :div, :strong, id: "demo" do %>
+  <% end %>
+  <img id="imageid" />
+  
 
 
 <script>
@@ -86,36 +77,26 @@
       document.getElementById("demo").innerHTML = 10;
       countdownValue = 10;
     }
-    // if (typeof gon.your_array[countdownValue] !== 'undefined'){
-    //     // alert(gon.your_array[countdownValue])
-    // } 
-    // alert(gon.your_int) //size of the array, @gallery
+
     var img = document.getElementById('imageid');
-    // img.src = gon.your_array[countdownValue%gon.your_int]
-  
+    // alert(gon.your_int) //size of the array, @gallery
     if (current_index == gon.your_int) {
       current_index = 0
     }
     // https://stackoverflow.com/questions/44341721/how-to-display-dynamic-url-image-in-html-from-which-created-by-javascript
     img.src = gon.your_array[current_index]
-    // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_insert_deleterow
-    // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
-    // document.getElementById("PLAYS").onload = function() {fillTable()};
-
     current_index++;
   }  
-
 
 </script>
 
 <script>
+  // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_insert_deleterow
+  // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
+  //https://stackoverflow.com/questions/7882356/javascript-get-img-src-and-set-as-variable
   function fillTable(){
     var x = document.getElementById("demo").innerHTML;
     var y = document.getElementById("imageid").src;
-    // alert(x)
-    // alert(y)
-    // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = x;
-    // document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = y;
     var table = document.getElementById("PLAYS");
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
@@ -126,45 +107,3 @@
   }
 </script>
 
-<script>
-  // $(document).ready(function(){
-  //   $("#fillTable").click(function(){
-  //     var table = document.getElementById("PLAYS");
-  //     var row = table.insertRow(-1);
-  //     var cell1 = row.insertCell(0);
-  //     var cell2 = row.insertCell(1);
-  //     var cell3 = row.insertCell(2);
-  //     cell1.innerHTML = countdownValue;
-  //     cell2.innerHTML = current_index;
-  //     cell3.innerHTML = gon.your_array[current_index];
-  //   });
-  // });
-  
-  
-  // countdownValue2 = 10;
-  // current_index2 = 0;
-  // if (countdownValue2 == 0){
-  //   countdownValue2 = 10;
-  // }
-  // if (current_index2 == gon.your_int) {
-  //   current_index2 = 0
-  // }
-
-  // function fillTable(){
-  //   var table = document.getElementById("PLAYS");
-  //   var row = table.insertRow(-1);
-  //   var cell1 = row.insertCell(0);
-  //   var cell2 = row.insertCell(1);
-  //   var cell3 = row.insertCell(2);
-    
-  //   cell1.innerHTML = countdownValue2;
-  //   cell2.innerHTML = current_index2;
-  //   cell3.innerHTML = gon.your_array[current_index2];
-  // }  
-  // countdownValue2--;
-  // current_index2++; 
-  
-        // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = countdownValue;
-      // document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = current_index;
-      // document.getElementById("PLAYS").insertRow(-1).insertCell(2).innerHTML = gon.your_array[current_index];
-</script>
