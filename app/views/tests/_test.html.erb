@@ -35,7 +35,7 @@
   <br>
   <%= content_tag :div, :strong, id: "demo" do %>
   <% end %>
-  <!--<img id="imageid" />-->
+  <img id="imageid" />
   
   <table id="PLAYS">
     <tr>
@@ -44,7 +44,6 @@
     <tr>
       <th>Countdown Value</th>
       <th>Image</th>
-      <th>Image Index</th>
     </tr> 
     <% rails_index = 0 %>
     <% (10.to_i).downto(0) { |countdown| %>
@@ -52,15 +51,12 @@
         <td><%= countdown %>
         </td>
         
-        <td><% if (rails_index == @gallery.size) %>
+       <td><% if (rails_index == @gallery.size) %>
             <% rails_index = 0 %>
             <% end %>
-            <%= rails_index %>
+            <%= image_tag(@gallery[rails_index]) %>
         </td>
         
-        <td>
-          <%= @gallery[rails_index] %>
-        </td>
       </tr>
       <% rails_index += 1 %>
     <% } %>
@@ -75,32 +71,6 @@
 
 
 <script>
-  document.getElementById("PLAYS").addEventListener("load", fillTable);
-  
-  function fillTable(){
-    var table = document.getElementById("PLAYS");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    
-    var countdownValue2;
-    var current_index2 = 0;
-    for (countdownValue2 = 10; countdownValue2 > 1; countdownValue2--){
-      if (current_index2 == gon.your_int) {
-        current_index2 = 0
-      }
-      cell1.innerHTML = countdownValue2;
-      cell2.innerHTML = current_index2;
-      cell3.innerHTML = gon.your_array[current_index2];
-      // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = countdownValue2;
-      // document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = current_index2;
-      // document.getElementById("PLAYS").insertRow(-1).insertCell(2).innerHTML = gon.your_array[current_index2];
-      current_index2++;
-    }
-
-    // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = "testtesttest";
-  }
 
 </script>
 <script>
@@ -131,21 +101,70 @@
     // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_insert_deleterow
     // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
     // document.getElementById("PLAYS").onload = function() {fillTable()};
-      document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = countdownValue;
-      document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = current_index;
-      document.getElementById("PLAYS").insertRow(-1).insertCell(2).innerHTML = gon.your_array[current_index];
+
     current_index++;
-  }
+  }  
 
 
 </script>
 
-
+<script>
+  function fillTable(){
+    var x = document.getElementById("demo").innerHTML;
+    var y = document.getElementById("imageid").src;
+    // alert(x)
+    // alert(y)
+    // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = x;
+    // document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = y;
+    var table = document.getElementById("PLAYS");
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    
+    cell1.innerHTML = x;
+    cell2.innerHTML = '<img src='+y+'>';
+  }
+</script>
 
 <script>
-  // $("#TableButton").on("click", function(event)){
-  //   $.ajax({
-      
+  // $(document).ready(function(){
+  //   $("#fillTable").click(function(){
+  //     var table = document.getElementById("PLAYS");
+  //     var row = table.insertRow(-1);
+  //     var cell1 = row.insertCell(0);
+  //     var cell2 = row.insertCell(1);
+  //     var cell3 = row.insertCell(2);
+  //     cell1.innerHTML = countdownValue;
+  //     cell2.innerHTML = current_index;
+  //     cell3.innerHTML = gon.your_array[current_index];
   //   });
+  // });
+  
+  
+  // countdownValue2 = 10;
+  // current_index2 = 0;
+  // if (countdownValue2 == 0){
+  //   countdownValue2 = 10;
   // }
+  // if (current_index2 == gon.your_int) {
+  //   current_index2 = 0
+  // }
+
+  // function fillTable(){
+  //   var table = document.getElementById("PLAYS");
+  //   var row = table.insertRow(-1);
+  //   var cell1 = row.insertCell(0);
+  //   var cell2 = row.insertCell(1);
+  //   var cell3 = row.insertCell(2);
+    
+  //   cell1.innerHTML = countdownValue2;
+  //   cell2.innerHTML = current_index2;
+  //   cell3.innerHTML = gon.your_array[current_index2];
+  // }  
+  // countdownValue2--;
+  // current_index2++; 
+  
+        // document.getElementById("PLAYS").insertRow(-1).insertCell(0).innerHTML = countdownValue;
+      // document.getElementById("PLAYS").insertRow(-1).insertCell(1).innerHTML = current_index;
+      // document.getElementById("PLAYS").insertRow(-1).insertCell(2).innerHTML = gon.your_array[current_index];
 </script>
