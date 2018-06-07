@@ -6,17 +6,16 @@
 <!--</li>-->
 <li>
 
-    <% @gallery_thumbnails = Hash.new  %>
-    <% @countdown = { zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9};  %>
+    <% @shuffledGallery_thumbnails = Hash.new  %>
   <!--<strong>Uploads:</strong> <br>-->
 
   <% (0..test.uploads.length-1).each do |i| %> 
-    <% @gallery_thumbnails[i] = test.thumbnail(i) %>
+    <% @shuffledGallery_thumbnails[i] = test.thumbnail(i) %>
     <%#= image_tag(@test.uploads[i]) %>
   <% end %>  
 
   <br>
-  <strong>GALLERY SIZE: <%= @gallery.size %></strong> 
+  <strong>NEW GALLERY SIZE: <%= @newGallerySize %></strong> 
   <br>
 
 
@@ -37,10 +36,10 @@
         <td><%= countdown %>
         </td>
         
-       <td><% if (rails_index == @gallery.size) %>
-            <% rails_index = 0 %>
+       <td> <% if (rails_index == @newGallerySize) %>
+              <% rails_index = 0 %>
             <% end %>
-            <%= image_tag(@gallery[rails_index]) %>
+            <%= image_tag(@newestGallery[rails_index]) %>
         </td>
         
       </tr>
@@ -55,7 +54,7 @@
   </div>
   
   <br>
-  <%= content_tag :div, :strong, id: "demo" do %>
+  <%= content_tag :h1, :strong, id: "demo" do %>
   <% end %>
   <img id="imageid" />
   
@@ -65,12 +64,11 @@
 
 </script>
 <script>
-  var countdownValue = 11;
+  var countdownValue = 10;
   setInterval(countdown, 1000);
   var current_index = 0
 
   function countdown(){
-	  countdownValue--;
     if (countdownValue > 0){
       document.getElementById("demo").innerHTML = countdownValue;
     }else{
@@ -83,8 +81,10 @@
     if (current_index == gon.your_int) {
       current_index = 0
     }
+
     // https://stackoverflow.com/questions/44341721/how-to-display-dynamic-url-image-in-html-from-which-created-by-javascript
     img.src = gon.your_array[current_index]
+	  countdownValue--;
     current_index++;
   }  
 

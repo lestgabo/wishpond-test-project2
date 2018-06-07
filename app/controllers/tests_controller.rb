@@ -15,16 +15,19 @@ class TestsController < ApplicationController
       @gallery[i] = rails_blob_url(@test.uploads[i])
     end
    
-    @gallery = @gallery.shuffle
+    @shuffledGallery = @gallery.shuffle
      
-    if (@gallery.size < 10) 
-      gon.your_int = rand(@gallery.size)
+    if (@shuffledGallery.size < 10) 
+      # rand needs that "1.." or else rand can choose 0 which we cannot have
+      gon.your_int = rand(1..(@shuffledGallery.size))
     else
-      gon.your_int = rand(10)
+      gon.your_int = rand(1..10)
     end
-    
-    gon.your_array = @gallery
-
+    # need @newGallerySize for the Rails generated table
+    @newGallerySize = gon.your_int
+    # new gallery or new array is now the size of index 0 -> new size after being random cut up to 10
+    @newestGallery = @shuffledGallery[0,gon.your_int]
+    gon.your_array = @newestGallery
   end
 
   # GET /tests/new
