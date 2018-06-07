@@ -14,14 +14,16 @@ class TestsController < ApplicationController
     (0..@test.uploads.length-1).each do |i|
       @gallery[i] = rails_blob_url(@test.uploads[i])
     end
-    gon.your_array = @gallery
+   
     @gallery = @gallery.shuffle
+     
     if (@gallery.size < 10) 
       gon.your_int = rand(@gallery.size)
     else
       gon.your_int = rand(10)
     end
     
+    gon.your_array = @gallery
 
   end
 
