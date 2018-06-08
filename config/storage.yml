@@ -11,7 +11,7 @@ amazon:
   service: S3
   access_key_id: <%= ENV['S3_KEY'] %>
   secret_access_key: <%= ENV['S3_SECRET'] %>
-  # region: us-east-1
+  region: us-west-2
   bucket: wishpond-test-project
 
 # Remember not to checkin your GCS keyfile to a repository
