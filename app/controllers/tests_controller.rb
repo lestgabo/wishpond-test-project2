@@ -6,6 +6,12 @@ class TestsController < ApplicationController
     @tests = Test.all
     @test = Test.new
   end
+  
+  def about
+    # pdf_filename = File.join(Rails.root, "public/wishpond-test-project-007.pdf")
+    # send_file(pdf_filename, filename: "wishpond-test-project-007.pdf", type: "application/pdf")
+  end
+
 
   # GET /tests/1
   # GET /tests/1.json

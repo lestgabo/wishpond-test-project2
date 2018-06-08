@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'tests#index'
   resources :tests
-  get '/page1', to: 'test#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/page1', to: 'tests#index'
+  get '/about', to: 'tests#about'
 end
