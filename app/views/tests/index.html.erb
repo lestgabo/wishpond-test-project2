@@ -1,7 +1,7 @@
 
 <%= render 'form', test: @test %>
 <div class="col-md-4 col-md-offset-4">
-  <div class="well">
+  <div class="well" id="uploads-table">
 
       <br>
     
@@ -9,13 +9,12 @@
       <tbody>
         <tr>
           <th>List of Uploads</th>
-          <th colspan="4"></th>
+          <th colspan="3"></th>
         </tr>
         <% @tests.each do |test| %>
           <tr>
             <td><%= test.name %></td> 
             <td><%= link_to 'Page 2', test %></td>
-            <td><%= link_to 'Edit', edit_test_path(test) %></td>
             <td><%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?'} %></td>
           </tr>
         <% end %>

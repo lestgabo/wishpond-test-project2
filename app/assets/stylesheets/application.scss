@@ -116,3 +116,8 @@ input[type=file][data-direct-upload-url][disabled] {
     color: #585858;
   }
 }
+
+// to not move the navbars
+#uploads-table {
+    margin-bottom: 80%;
+}
