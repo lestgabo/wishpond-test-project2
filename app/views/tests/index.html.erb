@@ -10,27 +10,11 @@
     </tr>
   </thead>
 
-  <%= form_with(model: @test, local: true) do |form| %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>  
-    
-    <div class="field">
-      <%= form.label :uploads %>
-      <%= form.file_field :uploads, multiple: true %> <!--for multiple uploads-->
-    </div>
-    
-    <div class="actions">
-      <%= form.submit data: { "disable-with": "Uploading..." }%>
-    </div>
-  <% end %>
+  <%= render 'form', test: @test %>
   
   <br>
 
-  <ul id="test2222">
-    <% t = 'whatt' %>
-    <%= t %>
+
   </ul>
   
   

@@ -47,6 +47,8 @@ gem 'jquery-rails'
 # Bootstrap and sass
 gem 'bootstrap-sass'
 
+# direct upload for Active Storage
+gem 'aws-sdk-s3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

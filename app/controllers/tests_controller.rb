@@ -79,6 +79,7 @@ class TestsController < ApplicationController
   # DELETE /tests/1
   # DELETE /tests/1.json
   def destroy
+    @test.uploads.purge
     @test.destroy
     respond_to do |format|
       format.html { redirect_to tests_url, notice: 'Test was successfully destroyed.' }
