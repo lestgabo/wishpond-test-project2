@@ -1,27 +1,35 @@
-<%= form_with(model: test, local: true) do |form| %>
-  <% if test.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(test.errors.count, "error") %> prohibited this test from being saved:</h2>
-
-      <ul>
-      <% test.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="col-md-4 col-md-offset-4">
+  <div class="well">
+    <%= form_with(model: test, local: true) do |form| %>
+      <% if test.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(test.errors.count, "error") %> prohibited this test from being saved:</h2>
+    
+          <ul>
+          <% test.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>  
-  
-  <div class="field">
-    <%= form.label :uploads %>
-    <%= form.file_field :uploads, multiple: true, direct_upload: true %> <!--for multiple uploads-->
+    
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>  
+      
+      <div class="form-group">
+        <%= form.label :uploads %>
+        <%= form.file_field :uploads, multiple: true, direct_upload: true, class: 'form-control' %> <!--for multiple uploads-->
+      </div>
+    
+      <div class="form-group">
+        <%= form.submit 'Upload', class: 'btn btn-primary', data: { "disable-with": "Uploading..." }%>
+      </div>
+    <% end %>
+    
+    
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit data: { "disable-with": "Uploading..." }%>
-  </div>
-<% end %>
+

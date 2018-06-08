@@ -1,10 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <ul id="tests">
-    <%= render @test, test2: 'TEST2 from show' %>
-  </ul>
-</p>
+
+<%= render @test %>
 
 <%= link_to 'Edit', edit_test_path(@test) %> |
 <%= link_to 'Back', tests_path %>

@@ -10,6 +10,8 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
+    @current_id = @test.id
+
     @gallery = Array.new
     (0..@test.uploads.length-1).each do |i|
       @gallery[i] = rails_blob_url(@test.uploads[i])

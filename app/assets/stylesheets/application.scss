@@ -80,3 +80,39 @@
 input[type=file][data-direct-upload-url][disabled] {
   display: none;
 }
+
+
+// form css
+.form-control {
+  height: 100%;
+}
+
+
+// Nav Styles
+
+.navbar-brand {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+
+.navbar-default .navbar-brand, 
+.navbar-default .navbar-nav > li > a {
+  color: #323232;
+  &:hover {
+    color: #585858;
+    //opacity: 0.75;
+  }
+}
+
+// navbar when minimizing screen
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #323232;
+}
+
+.navbar-default .navbar-toggle {
+  border: 2px #323232;
+  &:hover, &:focus {
+    background-color: #585858;
+    color: #585858;
+  }
+}

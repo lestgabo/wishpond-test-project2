@@ -1,26 +1,15 @@
-<!--<p id="test"><%= test.name %></p>-->
 
-<!--<li>-->
-<!--  <strong>Name:</strong>-->
-<!--  <%= test.name %>-->
-<!--</li>-->
-<li>
+<!--<%# @shuffledGallery_thumbnails = Hash.new  %>-->
 
-    <% @shuffledGallery_thumbnails = Hash.new  %>
-  <!--<strong>Uploads:</strong> <br>-->
+<!--<%# (0..test.uploads.length-1).each do |i| %> -->
+<!--  <%# @shuffledGallery_thumbnails[i] = test.thumbnail(i) %>-->
+<!--<%# end %>  -->
 
-  <% (0..test.uploads.length-1).each do |i| %> 
-    <% @shuffledGallery_thumbnails[i] = test.thumbnail(i) %>
-    <%#= image_tag(@test.uploads[i]) %>
-  <% end %>  
+<div class='container'>
+  <h1><strong>Number of up to 10 images randomly chosen: <%= @newGallerySize %></strong> </h1>
+</div>
 
-  <br>
-  <strong>NEW GALLERY SIZE: <%= @newGallerySize %></strong> 
-  <br>
-
-
-</li>
-
+<div class='container-fluid'>
 
   <table id="PLAYS">
     <tr>
@@ -33,7 +22,7 @@
     <% rails_index = 0 %>
     <% (10.to_i).downto(0) { |countdown| %>
       <tr>
-        <td><%= countdown %>
+        <td><strong><%= countdown %></strong> 
         </td>
         
        <td> <% if (rails_index == @newGallerySize) %>
@@ -46,18 +35,36 @@
       <% rails_index += 1 %>
     <% } %>
   </table>
-  
+</div>
+
+ <br>
+ <br>
+ 
+<div class='container'>
+  <h1><strong>Number of up to 10 images randomly chosen: <%= @newGallerySize %></strong> </h1>
+</div>
+
+ <br>
+ <br>
+ 
+<div class='container'>
   <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-          <button onclick="fillTable()" class='btn btn-success btn-lg btn-block'>CREATE ROW</button> 
+      <div class="col-md-8 col-md-offset-2">
+          <button onclick="fillTable()" class='btn btn-primary btn-lg btn-block'>CREATE ROW</button> 
       </div>
   </div>
-  
-  <br>
-  <%= content_tag :h1, :strong, id: "demo" do %>
+</div>
+
+ <br>
+ 
+<div class='container-fluid'>
+  <%= content_tag :h1, :strong, class:'text-center', id: "demo" do %>
   <% end %>
-  <img id="imageid" />
-  
+   <br>
+  <img id="imageid"/>
+</div>
+
+  <br>
 
 
 <script>
@@ -102,7 +109,7 @@
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     
-    cell1.innerHTML = x;
+    cell1.innerHTML = '<strong>'+x+'</strong>';
     cell2.innerHTML = '<img src='+y+'>';
   }
 </script>
