@@ -85,8 +85,7 @@ class TestsController < ApplicationController
     
   end
 
-  # PATCH/PUT /tests/1
-  # PATCH/PUT /tests/1.json
+
   def update
     respond_to do |format|
       if @test.update(test_params)
@@ -99,13 +98,10 @@ class TestsController < ApplicationController
     end
   end
 
-  # DELETE /tests/1
-  # DELETE /tests/1.json
   def destroy
-    @test.uploads.purge
     @test.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Successfully destroyed.' }
+      format.html { redirect_to '/', notice: 'Successfully destroyed.' }
       format.json { head :no_content }
     end
   end
