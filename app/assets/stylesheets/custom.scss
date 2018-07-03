@@ -1,0 +1,148 @@
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// https://www.w3schools.com/Css/tryit.asp?filename=trycss_table_fancy
+#PLAYS {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#PLAYS td, #PLAYS th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#PLAYS tr:nth-child(even){background-color: #f2f2f2;}
+
+#PLAYS tr:hover {background-color: #ddd;}
+
+#PLAYS th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: blue;
+    color: white;
+}
+
+
+/* direct_uploads.css */
+ 
+.direct-upload {
+  display: inline-block;
+  position: relative;
+  padding: 2px 4px;
+  margin: 0 3px 3px 0;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 13px;
+}
+ 
+.direct-upload--pending {
+  opacity: 0.6;
+}
+ 
+.direct-upload__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+  background: #0076ff;
+  transition: width 120ms ease-out, opacity 60ms 60ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+ 
+.direct-upload--complete .direct-upload__progress {
+  opacity: 0.4;
+}
+ 
+.direct-upload--error {
+  border-color: red;
+}
+ 
+input[type=file][data-direct-upload-url][disabled] {
+  display: none;
+}
+
+
+// form css
+.form-control {
+  height: 100%;
+}
+
+
+// Nav Styles
+
+.navbar-brand {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+
+.navbar-default .navbar-brand, 
+.navbar-default .navbar-nav > li > a {
+  color: #323232;
+  &:hover {
+    color: #585858;
+    //opacity: 0.75;
+  }
+}
+
+// navbar when minimizing screen
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #323232;
+}
+
+.navbar-default .navbar-toggle {
+  border: 2px #323232;
+  &:hover, &:focus {
+    background-color: #585858;
+    color: #585858;
+  }
+}
+
+// to not move the navbars
+#uploads-table {
+    margin-bottom: 80%;
+}
+
+
+.navbar-nav > li > a {
+   padding-left: 50%;
+}
+
+
+@mixin box_sizing {
+  -moz-box-sizing:     border-box;
+  -webkit-box-sizing:  border-box;
+   box-sizing:         border-box;
+}
+
+/* forms */
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
