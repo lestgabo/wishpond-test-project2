@@ -19,11 +19,25 @@ class TestsController < ApplicationController
     @current_id = @test.id
 
     @gallery = Array.new
+    @gallery2 = Array.new
+    @gallery3 = Array.new
+
     (0..@test.uploads.length-1).each do |i|
-      @gallery[i] = rails_blob_url(@test.uploads[i])
+      @gallery[i]  = rails_blob_url(@test.uploads[i])
+    end
+    
+    (0..@gallery.length-1).each do |i|
+      @gallery2[i]  = @test.thumbnail(i) 
     end
    
-    @shuffledGallery = @gallery.shuffle
+   (0..@gallery.length-1).each do |i|
+      @gallery3[i]  = polymorphic_url(@gallery2[i])
+    end
+   
+
+
+    @shuffledGallery = @gallery3.shuffle
+                
      
     if (@shuffledGallery.size < 10) 
       # rand needs that "1.." or else rand can choose 0 which we cannot have

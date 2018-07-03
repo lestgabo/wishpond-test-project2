@@ -1,18 +1,14 @@
 
-<!--<%# @shuffledGallery_thumbnails = Hash.new  %>-->
 
-<!--<%# (0..test.uploads.length-1).each do |i| %> -->
-<!--  <%# @shuffledGallery_thumbnails[i] = test.thumbnail(i) %>-->
-<!--<%# end %>  -->
 
-<div class='container'>
+<div class='container text-center'>
   <h1><strong>Number of images uploaded: <%= @test.uploads.size %></strong> </h1>
   <h1><strong>Number of up to 10 images randomly chosen: <%= @newGallerySize %></strong> </h1>
 </div>
 
 <br>
 
-<div class='container-fluid'>
+<div class='container-fluid text-center'>
 
   <table id="PLAYS">
     <tr>
@@ -31,9 +27,9 @@
        <td> <% if (rails_index == @newGallerySize) %>
               <% rails_index = 0 %>
             <% end %>
-            <%= image_tag(@newestGallery[rails_index]) %>
+            <%= image_tag(@gallery3[rails_index]) %>
+            <%#= image_tag(@newestGallery[rails_index]) %>
         </td>
-        
       </tr>
       <% rails_index += 1 %>
     <% } %>
@@ -43,7 +39,7 @@
  <br>
  <br>
  
-<div class='container'>
+<div class='container text-center'>
   <h1><strong>Number of images uploaded: <%= @test.uploads.size %></strong> </h1>
   <h1><strong>Number of up to 10 images randomly chosen: <%= @newGallerySize %></strong> </h1>
 </div>
@@ -61,7 +57,7 @@
 
  <br>
  
-<div class='container-fluid'>
+<div class='container'>
   <%= content_tag :h1, :strong, class:'text-center', id: "demo" do %>
   <% end %>
    <br>
