@@ -36,6 +36,7 @@ class TestsController < ApplicationController
     # new gallery or new array is now the size of index 0 -> new size after being random cut up to 10
     @newestGallery = @shuffledGallery[0,gon.your_int]
     gon.your_array = @newestGallery
+
   end
 
   # GET /tests/new
@@ -55,7 +56,7 @@ class TestsController < ApplicationController
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
+        format.html { redirect_to @test, notice: 'Upload was successfull.' }
         format.js
         format.json { render json: @test, status: :created, location: @test }
       else
@@ -75,7 +76,7 @@ class TestsController < ApplicationController
   def update
     respond_to do |format|
       if @test.update(test_params)
-        format.html { redirect_to @test, notice: 'Test was successfully updated.' }
+        format.html { redirect_to @test, notice: 'Successfully updated.' }
         format.json { render :show, status: :ok, location: @test }
       else
         format.html { render :edit }
@@ -90,7 +91,7 @@ class TestsController < ApplicationController
     @test.uploads.purge
     @test.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Test was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Successfully destroyed.' }
       format.json { head :no_content }
     end
   end

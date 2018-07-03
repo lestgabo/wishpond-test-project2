@@ -2,10 +2,13 @@
 
 <div class="col-md-4 col-md-offset-4">
   <div class="well">
-    <%= form_with(model: test, local: true) do |form| %>
+    <%= form_with(model: test, local: true) do |f| %>
       <% if test.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(test.errors.count, "error") %> prohibited this test from being saved:</h2>
+          <h2>There 
+          <%= test.errors.count > 1 ? 'were' : 'was' %> 
+          <%= pluralize(test.errors.count, "error") %> 
+          that prohibited the upload:</h2>
     
           <ul>
           <% test.errors.full_messages.each do |message| %>
@@ -16,17 +19,21 @@
       <% end %>
     
       <div class="form-group">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: 'form-control' %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
       </div>  
       
       <div class="form-group">
-        <%= form.label :uploads %>
-        <%= form.file_field :uploads, multiple: true, direct_upload: true, class: 'form-control' %> <!--for multiple uploads-->
+        <%= f.label :uploads %>
+        <%= f.file_field :uploads, multiple: true, 
+                            direct_upload: true, 
+                            # accept: 'image/jpeg, image/gif, image/png', 
+                            class: 'form-control' 
+        %> <!--for multiple uploads-->
       </div>
     
       <div class="form-group">
-        <%= form.submit 'Upload', class: 'btn btn-primary', data: { "disable-with": "Uploading..." }%>
+        <%= f.submit 'Upload', class: 'btn btn-primary', data: { "disable-with": "Uploading..." }%>
       </div>
     <% end %>
     
@@ -34,4 +41,12 @@
   </div>
 </div>
 
+<script type="text/javascript">
+  $('#test_uploads').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size for an image is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
 
