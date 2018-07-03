@@ -45,9 +45,10 @@ class TestsController < ApplicationController
     else
       gon.your_int = rand(1..10)
     end
+    
     # need @newGallerySize for the Rails generated table
     @newGallerySize = gon.your_int
-    # new gallery or new array is now the size of index 0 -> new size after being random cut up to 10
+    # new gallery or new array is now the size of index 0 up to new random size up to 10
     @newestGallery = @shuffledGallery[0,gon.your_int]
     gon.your_array = @newestGallery
 

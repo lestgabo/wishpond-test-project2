@@ -27,8 +27,8 @@
        <td> <% if (rails_index == @newGallerySize) %>
               <% rails_index = 0 %>
             <% end %>
-            <%= image_tag(@gallery3[rails_index]) %>
-            <%#= image_tag(@newestGallery[rails_index]) %>
+            <%#= image_tag(@gallery3[rails_index]) %>
+            <%= image_tag(@newestGallery[rails_index]) %>
         </td>
       </tr>
       <% rails_index += 1 %>
@@ -49,8 +49,9 @@
  
 <div class='container'>
   <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-          <button onclick="fillTable()" class='btn btn-primary btn-lg btn-block'>CREATE ROW</button> 
+      <div class="col-lg-8 col-lg-offset-2">
+          <button onclick="fillTable()" class='btn btn-primary btn-lg btn-block'><h2>CREATE ROW</h2></button> 
+          <button onclick="topFunction()" title="Back to top" class="btn btn-info btn-lg btn-block"><h2>BACK TO TOP</h2></button>
       </div>
   </div>
 </div>
@@ -114,3 +115,10 @@
   }
 </script>
 
+
+<script>
+  function topFunction() {
+      document.body.scrollTop = 0; // For Chrome, Safari and Opera
+      document.documentElement.scrollTop = 0; // For IE and Firefox
+  }
+</script>
